@@ -1,0 +1,23 @@
+{% extends "layaout.twig" %}
+
+{% block content %}
+    <h1>Add Job</h1>
+    <div class="alert alert-primary" role="alert">
+        {{ responseMessage }}
+    </div>
+    <form action="/jobs/add" method="post" enctype="multipart/form-data">
+        <label for="title">Title:
+            <input type="text" name="title">
+        </label><br>
+        <label for="description">Description:
+            <input type="text" name="description">
+        </label><br>
+        <label for="months">Months:
+            <input type="number" name="months">
+        </label><br>
+        <input type="file" name="logo"><br>
+        <input type="submit" value="Add Job">
+    </form>
+    <br><br>
+    <a href="/CURSO-INTRODUCCION-PHP/">Previous</a>
+{% endblock %}

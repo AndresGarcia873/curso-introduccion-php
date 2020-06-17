@@ -1,0 +1,96 @@
+{% extends "header.twig" %}
+
+{% block content %}
+    <div id="resume-header" class="row">
+        <div class="col-3">
+            <img class="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
+        </div>
+        <div class="col">
+            <h1>Welcome {{ email }}!!</h1>
+            <h2>PHP Developer</h2>
+            <ul>
+                <li>Mail: andrespaez873@gmail.com</li>
+                <li>Phone: 3228466420</li>
+                <li>Facebook: <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100006681460878" title="Facebook">https://www.facebook.com/profile.php?id=100006681460878</a></li>
+                <li>YouTube: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCKr8fWCBpXhXxqy3CMSmo5g?view_as=subscriber" title="YouTube">https://www.youtube.com/channel/UCKr8fWCBpXhXxqy3CMSmo5g?view_as=subscriber</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="border-bottom-gray" >Carrer Summary</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>
+                <h3 class="border-bottom-gray" >Work Experience</h3>
+                <ul>
+                    {% for job in jobs %}
+                        {% if job.visible == '1' %}
+                            <li class="work-position">
+                                <h5>{{ job.title }}</h5>
+                                <p>{{ job.description }}</p>
+                                <p>{{ job.getDurationAsString() }}</p>
+                                <img src="uploads/jobs/{{ job.image }}" alt="Image Job" title="Image Job" width="25%">
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <h3 class="border-bottom-gray">Projects</h3>
+                {% for project in projects %}
+                    {% if project.visible == '1' %}
+                        <ul>
+                            <li>
+                                <h5>{{ project.title }}</h5>
+                            </li>
+                        </ul>
+                        <div class="project">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img class="profile-picture" src="uploads/projects/{{ project.image }}" alt="Image Project" title="Image Project">
+                                </div>
+                                <div class="col">
+                                    <p>{{ project.description }}</p>
+                                    <strong>Technologies used:</strong>
+                                    <span class="badge badge-secondary">PHP</span>
+                                    <span class="badge badge-secondary">HTML</span>
+                                    <span class="badge badge-secondary">CSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-3">
+            <h3 class="border-bottom-gray" >Skills & Tools</h3>
+            <h4>Backend</h4>
+            <ul>
+                <li>PHP</li>
+            </ul>
+            <h4>Frontend</h4>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+            <h4>Frameworks</h4>
+            <ul>
+                <li>Bootstrap</li>
+            </ul>
+            <h3 class="border-bottom-gray" >Languages</h3>
+            <ul>
+                <li>Spanish</li>
+                <li>English</li>
+            </ul>
+        </div>
+    </div>
+    <div id="resume-footer" class="row">
+        <div class="col">
+            Designed by @AndresGarcia
+        </div>
+    </div>
+{% endblock %}
